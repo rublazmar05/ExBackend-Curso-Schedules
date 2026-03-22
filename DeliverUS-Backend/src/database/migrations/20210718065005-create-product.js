@@ -40,10 +40,21 @@ module.exports = {
       },
       productCategoryId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: {
             tableName: 'ProductCategories'
+          },
+          key: 'id'
+        },
+        onDelete: 'SET NULL'
+      },
+      scheduleId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'Schedule'
           },
           key: 'id'
         }
