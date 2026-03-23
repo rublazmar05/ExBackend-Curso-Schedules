@@ -17,10 +17,14 @@ const validateEndTimeAfterStartTime = (endTime, { req }) => {
 }
 
 const create = [
-
+  check('startTime').exists().custom(validateTimeFormat),
+  check('endTime').exists().custom(validateTimeFormat).custom(validateEndTimeAfterStartTime),
+  
 ]
 
 const update = [
+  check('startTime').exists().custom(validateTimeFormat),
+  check('endTime').exists().custom(validateTimeFormat).custom(validateEndTimeAfterStartTime),
 
 ]
 
